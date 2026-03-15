@@ -1,18 +1,18 @@
-# ArXiv Research Agent 🤖📚
+# ArXiv Research Agent
 *(Powered by LangGraph & Google Gemini)*
 
 An open-source, production-ready research agent that autonomously fetches academic papers from ArXiv and synthesizes them into a highly readable, comprehensive Markdown report. 
 
 This project aims to demonstrate the capabilities of **LangGraph** (for state machine and control flow tracking) and **Google Gemini** (for fast, structured instruction-following and content summarization).
 
-## ✨ Features
+## Features
 - **Retrieval-Augmented Generation (RAG)**: Automatically searches ArXiv for specific academic topics.
 - **Resilience**: Implements retry logic (`tenacity`) to seamlessly handle rate limits or ArXiv API timeouts gracefully.
 - **Structured Pydantic Validation**: Ensures the LLM strictly returns data using desired schemas (Methodology, Contributions, Limitations) before drafting.
 - **Professional Output**: Synthesizes ideas creatively and outputs a professional, highly readable Markdown report.
 - **Modular Pipeline**: Decouples State, Nodes, and APIs, highly extensible for more complex logic.
 
-## 🏗️ Architecture / System Design
+## Architecture / System Design
 The agent is orchestrated as a directed graph powered by `langgraph`.
 1. `search_node`: Connects to ArXiv using the `arxiv` library, retrieving up to `MAX_PAPERS_TO_FETCH` results.
 2. `summarize_node`: Loops serially across retrieved papers to summarize key details into a structured JSON using `JsonOutputParser`.
@@ -26,7 +26,7 @@ graph TD
     report_node(Synthesize Markdown Report) --> B[END]
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Requirements
 
