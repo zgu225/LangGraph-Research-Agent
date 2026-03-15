@@ -12,10 +12,6 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 def main():
-    parser = argparse.ArgumentParser(description="ArXiv LangGraph Research Agent (Powered by Gemini)")
-    parser.add_argument("topic", type=str, help="The research topic to query on ArXiv")
-    args = parser.parse_args()
-
     # Load environment variables (such as GEMINI_API_KEY)
     load_dotenv()
     if not os.environ.get("GEMINI_API_KEY"):
@@ -25,7 +21,16 @@ def main():
     # Ensure the outputs directory exists
     os.makedirs(REPORTS_DIR, exist_ok=True)
 
-    topic = args.topic
+    print("\n" + "="*60)
+    print("🤖 Welcome to the LangGraph ArXiv Research Agent!")
+    print("="*60)
+    
+    # Use interactive input instead of argparse
+    topic = input("\n👉 Please enter the research topic you want to query: ").strip()
+    
+    if not topic:
+        logger.error("Topic cannot be empty. Exiting.")
+        return
     
     logger.info(f"Starting ArXiv Research Agent...")
     logger.info(f"Target Topic: '{topic}'")
