@@ -62,5 +62,5 @@ python main.py "Agents in Software Engineering"
 ```
 The agent will execute its pipeline and automatically save the output inside the `reports/` folder.
 
-## 🔭 Future Work
+## Future Work
 Currently, `summarize_node` parses retrieved papers serially for design simplicity. Due to the modular framework, this can be seamlessly upgraded to execute concurrent LLM calls (via `asyncio.gather` or ThreadPoolExecutor) to drastically reduce latency when summarizing multiple papers.
