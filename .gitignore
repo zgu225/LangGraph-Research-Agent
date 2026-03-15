@@ -1,0 +1,14 @@
+# Environments
+.env
+venv/
+env/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Project specific
+# We deliberately do NOT exclude reports/ here so we can commit example outputs.
+# If desired, specific user-generated reports can be ignored locally, e.g.:
+# reports/local_*.md
